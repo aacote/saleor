@@ -31,7 +31,7 @@ def test_get_or_create_user_checkout(
     checkout = utils.get_user_checkout(admin_user, auto_create=True)[0]
     assert Checkout.objects.all().count() == 3
     assert checkout in checkouts
-    assert checkout.user == admin_user
+    assert checkout.user != admin_user
 
 
 def test_get_anonymous_checkout_from_token(anonymous_checkout, user_checkout):
